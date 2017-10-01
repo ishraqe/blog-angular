@@ -1,0 +1,19 @@
+.text-muted span i{
+  color: #1caf4d;
+}
+.card:hover{
+  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+  border-radius: 12px;
+}
+.card-body a{
+  background-color: #1caf4d;
+  color: #f5f5f5;
+  border: none;
+}
+
+.card-body a:hover{
+  text-decoration: none;
+  background: #1caf4d;
+  color: #fff;
+  box-shadow: 0 10px 16px #1caf4d;
+}
