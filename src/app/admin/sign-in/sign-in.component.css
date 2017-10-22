@@ -1,3 +1,11 @@
-p{
-  margin-top: 107px;
+
+#sign-in{
+  background: white;
+  height:100%;
+  width: 100%;
+  border-radius: 5px;
+}
+#sign-in .form-container{
+  width: 362px;
+  padding: 20px;
 }

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -9,6 +10,7 @@ import { BlogsComponent } from './home/blogs/blogs.component';
 import { AdminComponent } from './admin/admin.component';
 import { SignInComponent } from './admin/sign-in/sign-in.component';
 import {FormsModule} from '@angular/forms';
+import {AuthService} from './admin/auth.service';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,9 @@ import {FormsModule} from '@angular/forms';
     SignInComponent
   ],
   imports: [
-    BrowserModule, RouterClass,FormsModule
+    BrowserModule, RouterClass, FormsModule, HttpModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
