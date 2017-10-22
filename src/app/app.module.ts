@@ -10,7 +10,10 @@ import { BlogsComponent } from './home/blogs/blogs.component';
 import { AdminComponent } from './admin/admin.component';
 import { SignInComponent } from './admin/sign-in/sign-in.component';
 import {FormsModule} from '@angular/forms';
-import {AuthService} from './admin/auth.service';
+import {AuthService} from './_service/auth.service';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import {AuthGuard} from './_guards/auth.guard';
+import { AdminBlogComponent } from './admin/dashboard/admin-blog/admin-blog.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +22,14 @@ import {AuthService} from './admin/auth.service';
     HomeComponent,
     BlogsComponent,
     AdminComponent,
-    SignInComponent
+    SignInComponent,
+    DashboardComponent,
+    AdminBlogComponent
   ],
   imports: [
     BrowserModule, RouterClass, FormsModule, HttpModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
