@@ -12,10 +12,9 @@ const appRouter: Routes = [
   /* Admin ROutes
    */
   {path: 'login', component: AdminComponent},
-  {path: 'admin/dashboard', canActivate: [AuthGuard], component: DashboardComponent, children:[
+  {path: 'admin/dashboard', canActivate: [AuthGuard], component: DashboardComponent, children: [
     {path: 'blogs', component: AdminBlogComponent},
   ]},
-
 ]
 
 @NgModule({

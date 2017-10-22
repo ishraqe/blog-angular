@@ -6,24 +6,21 @@ import {Router} from '@angular/router';
 @Injectable()
 export class AuthService {
   loggedIn = false;
+  public token: string;
   authUser: any = {};
   constructor(private http: Http, private router: Router) { }
-
   isAuthenticated() {
-    const promise = new Promise(
-      (resolve, reject) => {
-        setTimeout(() => {
-          resolve(this.loggedIn);
-        }, 800);
-      }
-    );
-    return promise;
+    const currentUser = localStorage.getItem('auth_token');
+    this.token = currentUser;
+    if (this.token != null) {
+      return true;
+    }
   }
   setToken(token) {
-    localStorage.setItem('token', token);
+    localStorage.setItem('auth_token', token);
   }
   destroyToken() {
-    localStorage.removeItem('token');
+    localStorage.removeItem('auth_token');
   }
   setAuthenticatedUser(data) {
     this.authUser = data;
@@ -39,10 +36,15 @@ export class AuthService {
     return this.http.post('http://localhost:3000/users/login', data).map(res => res.json())
       .map((res) => {
         if (res) {
-          localStorage.setItem('auth_token', res.tokens[0].token);
+          this.setToken(res.tokens[0].token);
           this.loggedIn = true;
         }
         return true;
       });
+  }
+  logoutUser() {
+    this.destroyToken();
+    this.token = '';
+    return true;
   }
 }
