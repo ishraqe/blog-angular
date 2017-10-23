@@ -14,6 +14,7 @@ import {AuthService} from './_service/auth.service';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import {AuthGuard} from './_guards/auth.guard';
 import { AdminBlogComponent } from './admin/dashboard/admin-blog/admin-blog.component';
+import { MainPageComponent } from './admin/dashboard/main-page/main-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AdminBlogComponent } from './admin/dashboard/admin-blog/admin-blog.comp
     AdminComponent,
     SignInComponent,
     DashboardComponent,
-    AdminBlogComponent
+    AdminBlogComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule, RouterClass, FormsModule, HttpModule

@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
 export class AuthService {
   loggedIn = false;
   public token: string;
-  authUser: any = {};
+  authUser = {};
   constructor(private http: Http, private router: Router) { }
   isAuthenticated() {
     const currentUser = localStorage.getItem('auth_token');
@@ -38,6 +38,7 @@ export class AuthService {
         if (res) {
           this.setToken(res.tokens[0].token);
           this.loggedIn = true;
+          this.setAuthenticatedUser(res);
         }
         return true;
       });
@@ -45,6 +46,7 @@ export class AuthService {
   logoutUser() {
     this.destroyToken();
     this.token = '';
+    this.authUser = '';
     return true;
   }
 }

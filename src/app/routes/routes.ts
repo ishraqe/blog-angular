@@ -5,6 +5,8 @@ import {AdminComponent} from '../admin/admin.component';
 import {DashboardComponent} from '../admin/dashboard/dashboard.component';
 import {AuthGuard} from '../_guards/auth.guard';
 import {AdminBlogComponent} from '../admin/dashboard/admin-blog/admin-blog.component';
+import {MainPageComponent} from '../admin/dashboard/main-page/main-page.component';
+
 
 
 const appRouter: Routes = [
@@ -13,6 +15,7 @@ const appRouter: Routes = [
    */
   {path: 'login', component: AdminComponent},
   {path: 'admin/dashboard', canActivate: [AuthGuard], component: DashboardComponent, children: [
+    {path: '', component: MainPageComponent},
     {path: 'blogs', component: AdminBlogComponent},
   ]},
 ]

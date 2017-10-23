@@ -1,5 +1,5 @@
-.right-nav {
-  margin-right: 82px;
+article {
+
 }
 
 .right-nav a {
@@ -8,12 +8,82 @@
 #sticky-sidebar {
   position:fixed;
   max-width: 20%;
-  background: #1caf4d;
   height: 100%;
+  margin-top: 10px;
+  background-color: #2f4050;
+  border-color: #2f4050;
+}
+.sticky-sidebar-inside {
+  position: relative;
 }
 
+.sticky-sidebar-inside .button{
+  position: absolute;
+  top: 5px;
+  right: -10px;
+  background: #fff;
+  padding: 4px 8px;
+  border-radius: 3px;
+}
+.sticky-sidebar-inside .button a{
+ cursor: pointer;
+  background-color: #ffffff;
+}
+
+.nav-wrapper {
+
+}
+.nav-inside ul {
+  list-style: none;
+}
+.nav-inside ul li {
+  display: block;
+  width: 100%;
+  padding: 16px 0px;
+}
+.nav-inside ul li a{
+  cursor: pointer;
+  color: white;
+}
+.nav-inside ul li a:hover{
+  cursor: pointer;
+  background-color: #293846;
+  color: white;
+}
+
+
+
 #main{
-  margin-top: 100px;
-  background: red;
+  margin-top: 10px;
   height: 100%;
+  margin-left: 275px;
+  width: 100%;
+}
+.dashboard-container {
+  overflow-x: hidden;
+  position: relative;
+}
+
+.KW_progressContainer {
+  margin-top: 56px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  margin-bottom: 0px;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  background-color: white;
+  content: "";
+  display: block;
+  table-layout: fixed;
+}
+
+.KW_progressBar {
+  float: left;
+  height: 100%;
+  z-index: 99;
+  max-width: 100%;
+  background-color: #FAE042;
+  transition: width .6s ease;
 }

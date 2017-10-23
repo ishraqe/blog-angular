@@ -1,45 +1,73 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
+<div class="dashboard-container">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
 
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav ml-auto right-nav">
-      <li class="nav-item dropdown" [ngClass]="{'show': open == true}">
-        <a class="nav-link dropdown-toggle" (click)="openDropdown()" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" [ngClass]="{'show': open == true}" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Profile</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" (click)="onClickLogout()">Log Out</a>
-        </div>
-      </li>
-    </ul>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto right-nav">
+        <li class="nav-item dropdown" [ngClass]="{'show': open == true}">
+          <a class="nav-link dropdown-toggle" (click)="openDropdown()" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" [ngClass]="{'show': open == true}" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="onClickLogout()">Log Out</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <br>
+  <div class="KW_progressContainer">
+    <div class="KW_progressBar">
+      kk
+    </div>
   </div>
-</nav>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-4">
-      <div class="col-md-4 col-xs-12" id="sticky-sidebar">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  <br>
+  <article>
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="col-md-4 col-xs-12" id="sticky-sidebar">
+          <div class="sticky-sidebar-inside">
+            <div class="button">
+              <a><i class="fa fa-bars" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="nav-wrapper-content">
+            <div class="nav-inside">
+              <ul>
+                <li><a>Dashboard</a></li>
+                <li ><a routerLink="blogs">Blogs</a></li>
+                <li><a>Categories</a></li>
+                <li><a>Map</a></li>
+                <li><a>Hello</a></li>
+                <li><a>Hello</a></li>
+                <li><a>Hello</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-8" id="main">
+        <router-outlet></router-outlet>
       </div>
     </div>
-    <div class="col-xs-8" id="main">
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-    </div>
-  </div>
+  </article>
 </div>
+
+
 
