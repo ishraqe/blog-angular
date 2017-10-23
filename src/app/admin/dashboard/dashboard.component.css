@@ -5,3 +5,15 @@
 .right-nav a {
   cursor: pointer;
 }
+#sticky-sidebar {
+  position:fixed;
+  max-width: 20%;
+  background: #1caf4d;
+  height: 100%;
+}
+
+#main{
+  margin-top: 100px;
+  background: red;
+  height: 100%;
+}
