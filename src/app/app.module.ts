@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -29,7 +30,7 @@ import { MainPageComponent } from './admin/dashboard/main-page/main-page.compone
     MainPageComponent
   ],
   imports: [
-    BrowserModule, RouterClass, FormsModule, HttpModule
+    BrowserModule, RouterClass, FormsModule, HttpModule, NgxPaginationModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../../_service/auth.service';
 import {Http} from '@angular/http';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-admin-blog',
@@ -9,8 +10,11 @@ import {Http} from '@angular/http';
 })
 export class AdminBlogComponent implements OnInit {
   auth = <any>{};
-  blogs = {};
+  index =  1;
+  blogs = [];
   message = '';
+  p: Number = 1;
+  openModal = false;
   constructor(private authService: AuthService, private http: Http) { }
 
   ngOnInit() {
@@ -28,6 +32,10 @@ export class AdminBlogComponent implements OnInit {
             this.message = 'No blog found';
           }
       });
+  }
+  openImageModal() {
+    this.openModal = true;
+    console.log(this.openModal);
   }
 // /blogs/user/:id
 }
