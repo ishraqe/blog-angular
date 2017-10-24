@@ -13,7 +13,6 @@ export class DashboardComponent implements OnInit {
   constructor(@Inject(DOCUMENT) private document: Document, private authService: AuthService, private  router: Router) { }
 
   ngOnInit() {
-    console.log(this.authService.loggedIn);
   }
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -21,16 +20,13 @@ export class DashboardComponent implements OnInit {
       const wintop = $(window).scrollTop(),
         docheight = $('article').height(),
         winheight = $(window).height();
-      console.log(wintop);
       const totalScroll = (wintop / (docheight - winheight)) * 100;
-      console.log('total scroll' + totalScroll);
       $('.KW_progressBar').css('width', totalScroll + '%');
     });
   }
   openDropdown() {
     console.log('click');
     this.open = !this.open;
-    console.log(this.open);
   }
   onClickLogout() {
     if (this.authService.logoutUser()) {

@@ -29,7 +29,7 @@ export class AuthService {
     localStorage.setItem('user', data);
   }
   getAuthenticateduser() {
-    return localStorage.getItem('user');
+    return JSON.parse(localStorage.getItem('user'));
   }
   logInUser(email: string, password: string) {
     const data = {
@@ -49,5 +49,6 @@ export class AuthService {
   logoutUser() {
     this.destroyToken();
     this.token = '';
+    return true;
   }
 }
