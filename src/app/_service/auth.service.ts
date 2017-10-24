@@ -7,7 +7,6 @@ import {Router} from '@angular/router';
 export class AuthService {
   loggedIn = false;
   public token: string;
-  authUser = {};
   constructor(private http: Http, private router: Router) { }
   isAuthenticated() {
     const currentUser = localStorage.getItem('auth_token');
@@ -19,14 +18,18 @@ export class AuthService {
   setToken(token) {
     localStorage.setItem('auth_token', token);
   }
+  getToken() {
+    return localStorage.getItem('auth_token');
+  }
   destroyToken() {
     localStorage.removeItem('auth_token');
+    localStorage.removeItem('user');
   }
   setAuthenticatedUser(data) {
-    this.authUser = data;
+    localStorage.setItem('user', data);
   }
   getAuthenticateduser() {
-    return this.authUser;
+    return localStorage.getItem('user');
   }
   logInUser(email: string, password: string) {
     const data = {
@@ -38,7 +41,7 @@ export class AuthService {
         if (res) {
           this.setToken(res.tokens[0].token);
           this.loggedIn = true;
-          this.setAuthenticatedUser(res);
+          this.setAuthenticatedUser(JSON.stringify(res));
         }
         return true;
       });
@@ -46,7 +49,5 @@ export class AuthService {
   logoutUser() {
     this.destroyToken();
     this.token = '';
-    this.authUser = '';
-    return true;
   }
 }
