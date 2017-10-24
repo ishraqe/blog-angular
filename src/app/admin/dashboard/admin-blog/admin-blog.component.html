@@ -32,7 +32,7 @@
                 <tr *ngFor="let blog of blogs | paginate: { itemsPerPage: 2, currentPage: p }; let i= index">
                   <th scope="row">{{ index+i  }}</th>
                   <td>{{blog.title}}</td>
-                  <td><a (click)="openImageModal()"><img class="blog_image" [src]="blog.blog_header_image" alt=""></a></td>
+                  <td><a (click)="openImageModal(blog._id)"><img class="blog_image" [src]="blog.blog_header_image" alt=""></a></td>
                   <td>{{blog.bog_description}}</td>
                   <td>{{blog.categories}}</td>
                   <td>{{blog.user_id}}</td>
@@ -49,30 +49,12 @@
  </div>
 <div id="myModal" class="modal" [style.display]="openModal ? 'block': ''">
   <span class="close">&times;</span>
-  <div class="modal-dialog modal-sm">
+  <div class="modal-dialog modal-lg">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="recipient-name" class="form-control-label">Recipient:</label>
-              <input type="text" class="form-control" id="recipient-name">
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="form-control-label">Message:</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div>
-          </form>
-        </div>
+        <img [src]="blogImage" alt="">
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Send message</button>
+          <button type="button" (click)="closeImageModal()" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>

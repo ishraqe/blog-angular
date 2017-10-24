@@ -15,6 +15,7 @@ export class AdminBlogComponent implements OnInit {
   message = '';
   p: Number = 1;
   openModal = false;
+  blogImage: String = '';
   constructor(private authService: AuthService, private http: Http) { }
 
   ngOnInit() {
@@ -33,9 +34,24 @@ export class AdminBlogComponent implements OnInit {
           }
       });
   }
-  openImageModal() {
+  getSingleBlog(blog_id) {
+    const id = blog_id.toString();
+    this.http.get('http://localhost:3000/blogs/' + id).map(res => res.json())
+      .subscribe((res) => {
+        if (res) {
+          this.blogImage = res.blog_header_image;
+        }else {
+          this.message = 'No blog found';
+        }
+      });
+  }
+  openImageModal(blog_id) {
     this.openModal = true;
-    console.log(this.openModal);
+    this.getSingleBlog(blog_id);
+    console.log(blog_id);
+  }
+  closeImageModal() {
+    this.openModal = false;
   }
 // /blogs/user/:id
 }

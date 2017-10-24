@@ -28,7 +28,13 @@
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
-
+#myModal .modal-dialog {
+  width: 100%;
+  max-width: none;
+}
+#myModal img {
+  width: 100%;
+}
 /* Modal Content (image) */
 .modal-content {
   margin: auto;
