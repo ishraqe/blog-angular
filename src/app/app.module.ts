@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 
+
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
@@ -16,6 +18,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import {AuthGuard} from './_guards/auth.guard';
 import { AdminBlogComponent } from './admin/dashboard/admin-blog/admin-blog.component';
 import { MainPageComponent } from './admin/dashboard/main-page/main-page.component';
+import {BlogsService} from './_service/blogs.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,7 @@ import { MainPageComponent } from './admin/dashboard/main-page/main-page.compone
   imports: [
     BrowserModule, RouterClass, FormsModule, HttpModule, NgxPaginationModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, BlogsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -26,6 +26,7 @@
                   <th>Description</th>
                   <th>Category</th>
                   <th>Created By</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,6 +37,10 @@
                   <td>{{blog.bog_description}}</td>
                   <td>{{blog.categories}}</td>
                   <td>{{blog.user_id}}</td>
+                  <td>
+                    <a (click)="deleteBlog(blog._id)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                    <a><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                  </td>
                 </tr>
                 </tbody>
               </table>
@@ -53,10 +58,11 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <img [src]="blogImage" alt="">
-        <div class="modal-footer">
-          <button type="button" (click)="closeImageModal()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <div class="closeModal">
+          <a (click)="closeImageModal()"><i class="fa fa-times" aria-hidden="true"></i></a>
         </div>
       </div>
+
     </div>
   </div>
 </div>

@@ -8,16 +8,17 @@ export class BlogsService {
 
   constructor(private http: Http, private router: Router, private authService: AuthService) { }
   getUsersBlog(userId) {
-    const data = {
-      user_id: userId
-    };
-    return this.http.post('http://localhost:3000/users/login', data).map(res => res.json())
-      .map((res) => {
-        if (res) {
-          return res;
-        }else {
-          return false;
+  return this.http.get('http://localhost:3000/blogs/user/' + userId).map(res => res.json())
+      .map((blogs) => {
+        if (blogs) {
+         return blogs;
         }
       });
+  }
+  getSingleBlog(blog_id) {
+   return this.http.get('http://localhost:3000/blogs/' + blog_id).map(res => res.json())
+     .map((blog) => {
+        return blog;
+     });
   }
 }

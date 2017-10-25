@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../../_service/auth.service';
 import {Http} from '@angular/http';
 import * as $ from 'jquery';
+import {BlogsService} from '../../../_service/blogs.service';
+import * as swal from 'sweetalert';
 
 @Component({
   selector: 'app-admin-blog',
@@ -16,7 +18,9 @@ export class AdminBlogComponent implements OnInit {
   p: Number = 1;
   openModal = false;
   blogImage: String = '';
-  constructor(private authService: AuthService, private http: Http) { }
+  buttons: any= '';
+  dangerMode: any = '';
+  constructor(private authService: AuthService, private blogService: BlogsService, private http: Http) { }
 
   ngOnInit() {
     this.auth = this.authService.getAuthenticateduser();
@@ -24,31 +28,44 @@ export class AdminBlogComponent implements OnInit {
   }
   getMyBlogs(user_id) {
      const id = user_id.toString();
-      this.http.get('http://localhost:3000/blogs/user/' + id).map(res => res.json())
-        .subscribe((res) => {
-          if (res) {
-            this.blogs = res;
-            console.log(res);
-          }else {
-            this.message = 'No blog found';
-          }
-      });
+     this.blogService.getUsersBlog(id).subscribe((res) => {
+       if (res) {
+         this.blogs = res;
+       }else {
+         this.message = 'No blog found';
+       }
+     });
   }
   getSingleBlog(blog_id) {
     const id = blog_id.toString();
-    this.http.get('http://localhost:3000/blogs/' + id).map(res => res.json())
-      .subscribe((res) => {
-        if (res) {
-          this.blogImage = res.blog_header_image;
-        }else {
-          this.message = 'No blog found';
-        }
-      });
+    this.blogService.getSingleBlog(id).subscribe((res) => {
+      if (res) {
+        this.blogImage = res.blog_header_image;
+      }else {
+        this.message = 'No blog found';
+      }
+    });
   }
   openImageModal(blog_id) {
     this.openModal = true;
     this.getSingleBlog(blog_id);
-    console.log(blog_id);
+  }
+  deleteBlog(blog_id) {
+    swal({
+      title: 'Are you sure?',
+      text: 'Once deleted, you will not be able to recover this imaginary file!',
+      icon: 'warning',
+      dangerMode: true,
+    }).then((willDelete) => {
+        if (willDelete) {
+          console.log(blog_id);
+          swal('Poof! Your imaginary file has been deleted!', {
+            icon: 'success',
+          });
+        } else {
+          swal('Your imaginary file is safe!');
+        }
+      });
   }
   closeImageModal() {
     this.openModal = false;

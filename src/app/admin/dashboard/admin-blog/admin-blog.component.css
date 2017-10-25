@@ -41,6 +41,14 @@
   display: block;
   width: 80%;
   max-width: 700px;
+  position: relative;
+}
+.modal-content .closeModal{
+  position: absolute;
+  top: 0;
+  right: 5px;
+  color: #ffffff;
+  font-size: 21px;
 }
 
 /* Caption of Modal Image */
