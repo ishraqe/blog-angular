@@ -1,7 +1,4 @@
 <div>
-  <div class="create-blog">
-    <a class="btn btn-outline-success" (click)="openCreateBlogModal()">Create Blog</a>
-  </div>
   <div class="">
     <div class="container">
       <div class="row">
@@ -45,7 +42,7 @@
       </div>
     </div>
   </div>
- </div>
+</div>
 <div id="myModal" class="modal" [style.display]="openImgModal ? 'block': ''">
   <span class="close">&times;</span>
   <div class="modal-dialog modal-lg">
@@ -135,25 +132,5 @@
     </div>
   </div>
 </div>
-<div id="myCreateBlogModal" class="modal" [style.display]="openCreateBlogModalForm ? 'block': ''">
-  <span class="close">&times;</span>
-  <div class="modal-dialog modal-lg">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="ModalLabel">New message</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div [froalaEditor]>Hello, Froala!</div>
-        </div>
-        <div class="modal-footer">
-          <a class="btn btn-secondary" (click)="closeCreateModal()">Close</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
 

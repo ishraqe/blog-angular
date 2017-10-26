@@ -1,0 +1,19 @@
+<div>
+  <div class="">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 padding-table">
+          <form (ngSubmit)="onSubmitCreateBlog(f)" #f="ngForm">
+            <textarea id="editorpen"
+              [froalaEditor]
+              [(ngModel)]="form.editorContent"
+              name="editorContent"
+            >
+            </textarea>
+            <button class="btn btn-outline-primary" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -17,9 +17,7 @@ export class AdminBlogComponent implements OnInit {
   p: Number = 1;
   openImgModal = false;
   openEditBlogModal= false;
-  openCreateBlogModalForm= false;
   blogImage: String = '';
-  uploadedImage: String= '';
   constructor(private authService: AuthService, private blogService: BlogsService, private http: Http) { }
 
   ngOnInit() {
@@ -56,13 +54,6 @@ export class AdminBlogComponent implements OnInit {
   }
   closeEditModal () {
     this.openEditBlogModal = false;
-  }
-  openCreateBlogModal() {
-    console.log('open edit');
-    this.openCreateBlogModalForm = true;
-  }
-  closeCreateModal () {
-    this.openCreateBlogModalForm = false;
   }
   editBlog(blog_id) {
 

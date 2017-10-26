@@ -19,6 +19,7 @@ import {AuthGuard} from './_guards/auth.guard';
 import { AdminBlogComponent } from './admin/dashboard/admin-blog/admin-blog.component';
 import { MainPageComponent } from './admin/dashboard/main-page/main-page.component';
 import {BlogsService} from './_service/blogs.service';
+import { AdminCreateBlogComponent } from './admin/dashboard/admin-blog/admin-create-blog/admin-create-blog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import {BlogsService} from './_service/blogs.service';
     SignInComponent,
     DashboardComponent,
     AdminBlogComponent,
-    MainPageComponent
+    MainPageComponent,
+    AdminCreateBlogComponent
   ],
   imports: [
     BrowserModule, RouterClass, FormsModule, HttpModule, NgxPaginationModule, FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
