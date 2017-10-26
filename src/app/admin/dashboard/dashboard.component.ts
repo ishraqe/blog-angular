@@ -2,7 +2,7 @@ import {Component, OnChanges, OnInit, HostListener, Inject,} from '@angular/core
 import { DOCUMENT } from '@angular/platform-browser';
 import {AuthService} from '../../_service/auth.service';
 import {Router} from '@angular/router';
-import * as $ from 'jquery';
+// import * as $ from 'jquery';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -25,7 +25,6 @@ export class DashboardComponent implements OnInit {
     });
   }
   openDropdown() {
-    console.log('click');
     this.open = !this.open;
   }
   onClickLogout() {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-declare var jquery: any;
-declare var $: any;
+// declare var jquery: any;
+// declare var $: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,9 +9,8 @@ declare var $: any;
 })
 export class AppComponent implements OnInit {
 
-  shownav: false;
+  shownav= true;
   constructor(private route: ActivatedRoute) {}
   ngOnInit() {
-    console.log(this.route);
   }
 }

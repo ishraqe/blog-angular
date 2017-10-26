@@ -35,6 +35,13 @@
 #myModal img {
   width: 100%;
 }
+#myEditBlogModal{
+  width: 100%;
+}
+#myEditBlogModal .modal-dialog {
+  width: 100%;
+  max-width: none;
+}
 /* Modal Content (image) */
 .modal-content {
   margin: auto;
@@ -97,4 +104,14 @@
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
+}
+
+.create-blog {
+  display: block;
+  width: 100%;
+  padding-left: 14px;
+  margin: 17px 0;
+}
+.card{
+  margin-bottom: 27px;
 }

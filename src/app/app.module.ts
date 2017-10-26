@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import {NgxPaginationModule} from 'ngx-pagination';
-
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 
 import { AppComponent } from './app.component';
@@ -19,7 +19,6 @@ import {AuthGuard} from './_guards/auth.guard';
 import { AdminBlogComponent } from './admin/dashboard/admin-blog/admin-blog.component';
 import { MainPageComponent } from './admin/dashboard/main-page/main-page.component';
 import {BlogsService} from './_service/blogs.service';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +32,7 @@ import {BlogsService} from './_service/blogs.service';
     MainPageComponent
   ],
   imports: [
-    BrowserModule, RouterClass, FormsModule, HttpModule, NgxPaginationModule
+    BrowserModule, RouterClass, FormsModule, HttpModule, NgxPaginationModule, FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
   ],
   providers: [AuthService, AuthGuard, BlogsService],
   bootstrap: [AppComponent]

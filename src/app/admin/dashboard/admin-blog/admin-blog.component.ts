@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../../_service/auth.service';
 import {Http} from '@angular/http';
-import * as $ from 'jquery';
 import {BlogsService} from '../../../_service/blogs.service';
 import * as swal from 'sweetalert';
 
@@ -16,10 +15,11 @@ export class AdminBlogComponent implements OnInit {
   blogs = [];
   message = '';
   p: Number = 1;
-  openModal = false;
+  openImgModal = false;
+  openEditBlogModal= false;
+  openCreateBlogModalForm= false;
   blogImage: String = '';
-  buttons: any= '';
-  dangerMode: any = '';
+  uploadedImage: String= '';
   constructor(private authService: AuthService, private blogService: BlogsService, private http: Http) { }
 
   ngOnInit() {
@@ -47,8 +47,25 @@ export class AdminBlogComponent implements OnInit {
     });
   }
   openImageModal(blog_id) {
-    this.openModal = true;
+    this.openImgModal = true;
     this.getSingleBlog(blog_id);
+  }
+  openEditModal() {
+    console.log('open edit');
+    this.openEditBlogModal = true;
+  }
+  closeEditModal () {
+    this.openEditBlogModal = false;
+  }
+  openCreateBlogModal() {
+    console.log('open edit');
+    this.openCreateBlogModalForm = true;
+  }
+  closeCreateModal () {
+    this.openCreateBlogModalForm = false;
+  }
+  editBlog(blog_id) {
+
   }
   deleteBlog(blog_id) {
     swal({
@@ -68,7 +85,7 @@ export class AdminBlogComponent implements OnInit {
       });
   }
   closeImageModal() {
-    this.openModal = false;
+    this.openImgModal = false;
   }
 // /blogs/user/:id
 }
