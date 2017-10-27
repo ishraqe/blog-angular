@@ -4,6 +4,9 @@ import { HttpModule } from '@angular/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
+import { DropzoneModule } from 'ngx-dropzone-wrapper';
+import { DropzoneConfigInterface } from 'ngx-dropzone-wrapper';
+
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -20,6 +23,14 @@ import { AdminBlogComponent } from './admin/dashboard/admin-blog/admin-blog.comp
 import { MainPageComponent } from './admin/dashboard/main-page/main-page.component';
 import {BlogsService} from './_service/blogs.service';
 import { AdminCreateBlogComponent } from './admin/dashboard/admin-blog/admin-create-blog/admin-create-blog.component';
+
+const DROPZONE_CONFIG: DropzoneConfigInterface = {
+  // Change this to your upload POST address:
+  url: 'https://httpbin.org/post',
+  maxFilesize: 50,
+  acceptedFiles: 'image/*'
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +45,10 @@ import { AdminCreateBlogComponent } from './admin/dashboard/admin-blog/admin-cre
     AdminCreateBlogComponent
   ],
   imports: [
-    BrowserModule, RouterClass, FormsModule, HttpModule, NgxPaginationModule, FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
+    BrowserModule, RouterClass, FormsModule,
+    HttpModule, NgxPaginationModule,
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
+    DropzoneModule.forRoot(DROPZONE_CONFIG)
   ],
   providers: [AuthService, AuthGuard, BlogsService],
   bootstrap: [AppComponent]
