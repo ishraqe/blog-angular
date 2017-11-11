@@ -1,32 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
+import {AuthService} from '../../../../_service/auth.service';
+import {BlogsService} from '../../../../_service/blogs.service';
 
 @Component({
   selector: 'app-admin-create-blog',
   templateUrl: './admin-create-blog.component.html',
-  styleUrls: ['./admin-create-blog.component.css']
+  styleUrls: ['../../../../../assets/css/blogs.css']
 })
 export class AdminCreateBlogComponent implements OnInit {
-  form: any = {
-    editorContent: '',
-  }
-  config: {}
-  constructor() { }
+  @ViewChild('images_input') fileInput;
+  constructor(private authService: AuthService, private blogService: BlogsService) { }
 
   ngOnInit () {
   }
   onSubmitCreateBlog(blogCreateForm: NgForm) {
     const editor = blogCreateForm.value.editorContent;
-    const image = blogCreateForm.value.image;
     const title = blogCreateForm.value.title;
     const category = blogCreateForm.value.category;
-    console.log(editor, image, title, category);
+    const fileBrowser = this.fileInput.nativeElement;
+    if (fileBrowser.files && fileBrowser.files[0]) {
+      const formData = new FormData();
+      formData.append('image', fileBrowser.files[0]);
+      const image = fileBrowser.files[0];
+      const user_id = this.authService.getAuthenticateduser();
+      const blog_info = {
+        'title': title,
+        'blog_header_image': formData,
+        'bog_description': editor,
+        'categories': category,
+        'user_id': user_id._id
+      };
+
+      console.log(blog_info);
+      this.blogService.createBlog(blog_info).subscribe((res) => {
+        if (res) {
+          console.log(res);
+        }else {
+          console.log('err');
+        }
+      });
+    }
   }
-  onUploadError(error) {
-    console.log(error);
-  }
-  onUploadSuccess(file) {
-    console.log(file[0].name);
-  }
+
 
 }

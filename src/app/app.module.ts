@@ -28,7 +28,9 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
   url: 'https://httpbin.org/post',
   maxFilesize: 50,
-  acceptedFiles: 'image/*'
+  acceptedFiles: 'image/*',
+  uploadMultiple: false,
+  maxFiles: 1
 };
 
 @NgModule({

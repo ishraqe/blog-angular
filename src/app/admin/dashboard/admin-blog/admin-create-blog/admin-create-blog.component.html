@@ -1,50 +1,57 @@
-<div>
+  <div id="blogCreate">
   <div class="">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 padding-table">
-          <form (ngSubmit)="onSubmitCreateBlog(f)" #f="ngForm">
-            <div class="form-group">
-              <dropzone [config]="config"
-                        [message]="'Click or drag images here to upload'"
-                        (error)="onUploadError($event)"
-                        (success)="onUploadSuccess($event)"
-              ></dropzone>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Blog title</label>
-              <input type="email" class="form-control"
-                     id="exampleInputEmail1"
-                     aria-describedby="emailHelp"
-                     placeholder="Enter email"
-                     ngModel
-                     name="title"
-              >
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Blog Category</label>
-              <input type="email" class="form-control"
-                     id="exampleInputEmail1"
-                     aria-describedby="emailHelp"
-                     placeholder="Enter email"
-                     ngModel
-                     name="category"
-              >
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Blog Description</label>
-               <textarea id="editorpen"
-                         [froalaEditor]
-                         ngModel
-                         name="editorContent"
-               >
-            </textarea>
-            </div>
-
-            <button class="btn btn-outline-primary" type="submit">Submit</button>
-          </form>
+        <div class="col-md-12 padding-table">
+          <div class="title">
+            <div>Create your blog</div>
+          </div>
+          <div class="form">
+            <form (ngSubmit)="onSubmitCreateBlog(f)" #f="ngForm">
+              <!--<div class="form-group image-dropzone">-->
+                <!--<dropzone [config]="config"-->
+                          <!--[message]="'Click or drag images here to upload'"-->
+                          <!--(error)="onUploadError($event)"-->
+                          <!--(success)="onUploadSuccess($event)"-->
+                <!--&gt;</dropzone>-->
+              <!--</div>-->
+              <div class="form-group">
+                <label>Upload image</label>
+                <input type="file"
+                       class="form-control-file"
+                        #images_input
+                >
+              </div>
+              <div class="form-group">
+                <label>Blog title</label>
+                <input type="email" class="form-control"
+                       placeholder="Enter title"
+                       ngModel
+                       name="title"
+                >
+                <small  class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label >Blog Category</label>
+                <input type="email" class="form-control"
+                       placeholder="Enter email"
+                       ngModel
+                       name="category"
+                >
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label>Blog Description</label>
+                <textarea id="editorpen"
+                          [froalaEditor]
+                          ngModel
+                          name="editorContent"
+                >
+                </textarea>
+              </div>
+              <button class="btn btn-outline-primary" type="submit">Submit</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

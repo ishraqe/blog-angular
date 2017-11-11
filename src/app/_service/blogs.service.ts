@@ -21,4 +21,13 @@ export class BlogsService {
         return blog;
      });
   }
+
+  createBlog(blog_info) {
+    console.log(this.authService.getToken());
+    return this.http.post('http://localhost:3000/users/blog/create?auth_token=' +
+      this.authService.getToken(), blog_info).map(res => res.json())
+      .map((blog) => {
+        return blog;
+      });
+  }
 }
